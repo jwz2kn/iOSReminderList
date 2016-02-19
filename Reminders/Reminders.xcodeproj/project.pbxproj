@@ -15,6 +15,7 @@
 		52868C121C77996E00038735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52868C101C77996E00038735 /* LaunchScreen.storyboard */; };
 		52868C1D1C77996E00038735 /* RemindersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52868C1C1C77996E00038735 /* RemindersTests.swift */; };
 		52868C281C77996E00038735 /* RemindersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52868C271C77996E00038735 /* RemindersUITests.swift */; };
+		52868C361C77A3CD00038735 /* ReminderObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52868C351C77A3CD00038735 /* ReminderObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		52868C231C77996E00038735 /* RemindersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemindersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52868C271C77996E00038735 /* RemindersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersUITests.swift; sourceTree = "<group>"; };
 		52868C291C77996E00038735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52868C351C77A3CD00038735 /* ReminderObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				52868C071C77996E00038735 /* AppDelegate.swift */,
 				1FA915D31C779AE8007EDDCE /* ReminderTableViewController.swift */,
 				1FA915D51C779F69007EDDCE /* ReminderTableViewCell.swift */,
+				52868C351C77A3CD00038735 /* ReminderObject.swift */,
 				52868C0B1C77996E00038735 /* Main.storyboard */,
 				52868C0E1C77996E00038735 /* Assets.xcassets */,
 				52868C101C77996E00038735 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52868C361C77A3CD00038735 /* ReminderObject.swift in Sources */,
 				52868C081C77996E00038735 /* AppDelegate.swift in Sources */,
 				1FA915D61C779F69007EDDCE /* ReminderTableViewCell.swift in Sources */,
 				1FA915D41C779AE8007EDDCE /* ReminderTableViewController.swift in Sources */,
