@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FA915D41C779AE8007EDDCE /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA915D31C779AE8007EDDCE /* ReminderTableViewController.swift */; };
+		1FA915D61C779F69007EDDCE /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA915D51C779F69007EDDCE /* ReminderTableViewCell.swift */; };
 		52868C081C77996E00038735 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52868C071C77996E00038735 /* AppDelegate.swift */; };
-		52868C0A1C77996E00038735 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52868C091C77996E00038735 /* ViewController.swift */; };
 		52868C0D1C77996E00038735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52868C0B1C77996E00038735 /* Main.storyboard */; };
 		52868C0F1C77996E00038735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52868C0E1C77996E00038735 /* Assets.xcassets */; };
 		52868C121C77996E00038735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52868C101C77996E00038735 /* LaunchScreen.storyboard */; };
@@ -34,9 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1FA915D31C779AE8007EDDCE /* ReminderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
+		1FA915D51C779F69007EDDCE /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		52868C041C77996E00038735 /* Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52868C071C77996E00038735 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52868C091C77996E00038735 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52868C0C1C77996E00038735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52868C0E1C77996E00038735 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52868C111C77996E00038735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				52868C071C77996E00038735 /* AppDelegate.swift */,
-				52868C091C77996E00038735 /* ViewController.swift */,
+				1FA915D31C779AE8007EDDCE /* ReminderTableViewController.swift */,
+				1FA915D51C779F69007EDDCE /* ReminderTableViewCell.swift */,
 				52868C0B1C77996E00038735 /* Main.storyboard */,
 				52868C0E1C77996E00038735 /* Assets.xcassets */,
 				52868C101C77996E00038735 /* LaunchScreen.storyboard */,
@@ -256,8 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52868C0A1C77996E00038735 /* ViewController.swift in Sources */,
 				52868C081C77996E00038735 /* AppDelegate.swift in Sources */,
+				1FA915D61C779F69007EDDCE /* ReminderTableViewCell.swift in Sources */,
+				1FA915D41C779AE8007EDDCE /* ReminderTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +486,7 @@
 				52868C2E1C77996E00038735 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52868C2F1C77996E00038735 /* Build configuration list for PBXNativeTarget "RemindersTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				52868C311C77996E00038735 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52868C321C77996E00038735 /* Build configuration list for PBXNativeTarget "RemindersUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				52868C341C77996E00038735 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
