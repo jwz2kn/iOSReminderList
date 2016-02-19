@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -21,6 +22,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCP-VB-eO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="68" y="322"/>
+        </scene>
+        <!--Enter Info View Controller-->
+        <scene sceneID="DTJ-rq-4PT">
+            <objects>
+                <viewController id="bnk-o9-nKc" customClass="EnterInfoViewController" customModule="Reminders" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qkC-fR-Y9a"/>
+                        <viewControllerLayoutGuide type="bottom" id="L7x-hE-O1i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fnf-gG-i6f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txq-jr-h9k">
+                                <rect key="frame" x="102" y="475" width="117" height="30"/>
+                                <state key="normal" title="SUBMIT IT FOOL"/>
+                                <connections>
+                                    <action selector="SubmitButton:" destination="bnk-o9-nKc" eventType="touchUpInside" id="GXX-59-wyH"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-V5-gUa">
+                                <rect key="frame" x="47" y="130" width="226" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="F0W-2a-1fa">
+                                <rect key="frame" x="-4" y="243" width="328" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="477604155.395033">
+                                    <!--2016-02-19 19:49:15 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jd7-A4-VcS">
+                                <rect key="frame" x="47" y="198" width="226" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F0W-2a-1fa" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="-20" id="6Fz-t5-IF9"/>
+                            <constraint firstItem="jd7-A4-VcS" firstAttribute="top" secondItem="M2g-V5-gUa" secondAttribute="bottom" constant="38" id="914-sD-SqF"/>
+                            <constraint firstItem="jd7-A4-VcS" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="Awd-Jn-XIC"/>
+                            <constraint firstItem="Txq-jr-h9k" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="UPR-x2-n3f"/>
+                            <constraint firstItem="M2g-V5-gUa" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="31" id="WQt-ei-Wmj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F0W-2a-1fa" secondAttribute="trailing" constant="-20" id="YkJ-Og-fRJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jd7-A4-VcS" secondAttribute="trailing" constant="31" id="bg8-2c-d7b"/>
+                            <constraint firstItem="jd7-A4-VcS" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="31" id="cW9-IV-hYW"/>
+                            <constraint firstItem="Txq-jr-h9k" firstAttribute="top" secondItem="F0W-2a-1fa" secondAttribute="bottom" constant="16" id="fNO-QN-myn"/>
+                            <constraint firstItem="M2g-V5-gUa" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="fgK-DZ-ySz"/>
+                            <constraint firstItem="M2g-V5-gUa" firstAttribute="top" secondItem="qkC-fR-Y9a" secondAttribute="bottom" constant="66" id="iKh-wg-NHL"/>
+                            <constraint firstItem="F0W-2a-1fa" firstAttribute="top" secondItem="jd7-A4-VcS" secondAttribute="bottom" constant="15" id="oSB-Y1-48h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M2g-V5-gUa" secondAttribute="trailing" constant="31" id="wXI-qX-KG2"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="ReminderUIDate" destination="F0W-2a-1fa" id="Ruz-UV-DKI"/>
+                        <outlet property="ReminderUIDescription" destination="jd7-A4-VcS" id="PyM-rK-Wts"/>
+                        <outlet property="ReminderUITitle" destination="M2g-V5-gUa" id="DT5-B1-3iw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfh-Rp-cyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1014" y="-3"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="izj-dn-d3s">
@@ -41,7 +106,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDO-al-BOT">
                                             <rect key="frame" x="8" y="8" width="150" height="47.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -63,7 +128,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reminders" id="HjU-RK-uRa">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="6ed-Ov-7g6"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="6ed-Ov-7g6">
+                            <connections>
+                                <segue destination="bnk-o9-nKc" kind="show" identifier="add" id="qEb-vU-uhS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>

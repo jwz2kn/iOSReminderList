@@ -10,11 +10,19 @@ import UIKit
 
 class ReminderTableViewController: UITableViewController {
     var reminders: [String] = ["Do your homework", "This is a test"]
-    
+    let prefs = NSUserDefaults.standardUserDefaults()
+    var objectArray = [ReminderObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if((prefs.arrayForKey("TheArray")) == nil){
+            prefs.setValue(objectArray, forKey: "TheArray")
+            prefs.synchronize()
+        }
+        else{
+            objectArray = prefs.arrayForKey("TheArray") as! [ReminderObject]
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,13 +45,13 @@ class ReminderTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return reminders.count
+        return objectArray.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RCell", forIndexPath: indexPath) as! ReminderTableViewCell
-        cell.ReminderText.text = reminders[indexPath.row]
+        cell.ReminderText.text = objectArray[indexPath.row].reminderTitle
         return cell
     }
     

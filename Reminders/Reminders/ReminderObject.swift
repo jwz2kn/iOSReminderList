@@ -10,32 +10,41 @@ import UIKit
 
 class ReminderObject: NSObject {
     
-    var reminderTitle : String {
+    var theReminderTitle = ""
+    
+    var reminderTitle : String
+    {
         get {
-            return self.reminderTitle
+            return self.theReminderTitle
         }
-        set (newValue){
-            self.reminderTitle = newValue
-        }
-    }
-    var reminderDescription : String {
-        get {
-            return self.reminderDescription
-        }
-        set (newValue){
-            self.reminderDescription = newValue
-        }
-    }
-
-    var reminderDateTime : NSDate {
-        get {
-            return self.reminderDateTime
-        }
-        set (newValue){
-            self.reminderDateTime = newValue
+        set (newValue) {
+            self.theReminderTitle = newValue
         }
     }
     
+    var theReminderDescription = ""
+    
+    var reminderDescription : String
+    {
+        get {
+            return self.theReminderDescription
+        }
+        set {
+            self.theReminderDescription = newValue
+        }
+    }
+
+    var theReminderDateTime = NSDate()
+    
+    var reminderDateTime: NSDate
+    {
+        get {
+            return self.theReminderDateTime
+        }
+        set {
+            self.theReminderDateTime = newValue
+        }
+    }
     
     
 }
