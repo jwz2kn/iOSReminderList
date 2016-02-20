@@ -15,12 +15,14 @@ class ReminderTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if((prefs.arrayForKey("TheArray")) == nil){
-            prefs.setValue(objectArray, forKey: "TheArray")
+        if((prefs.objectForKey("TheData")) == nil){
+            let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
+            prefs.setObject(data, forKey: "TheData")
             prefs.synchronize()
         }
         else{
-            objectArray = prefs.arrayForKey("TheArray") as! [ReminderObject]
+            let decodeData = prefs.objectForKey("TheData") as! NSData
+            objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
         }
         
         // Uncomment the following line to preserve selection between presentations
@@ -28,7 +30,22 @@ class ReminderTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if((prefs.objectForKey("TheData")) == nil){
+            let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
+            prefs.setObject(data, forKey: "TheData")
+            prefs.synchronize()
+        }
+        else{
+            let decodeData = prefs.objectForKey("TheData") as! NSData
+            objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
+        }
+        self.tableView.reloadData()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +62,8 @@ class ReminderTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        NSLog("\(objectArray.count)")
+        
         return objectArray.count
     }
 

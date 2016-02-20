@@ -30,15 +30,27 @@ class EnterInfoViewController: UIViewController {
     
     
     @IBAction func SubmitButton(sender: AnyObject) {
+        if(ReminderUITitle.text != "" && ReminderUIDescription.text != ""){
         let newObject = ReminderObject()
         newObject.reminderTitle = ReminderUITitle.text!
         newObject.reminderDescription = ReminderUIDescription.text!
         newObject.reminderDateTime = ReminderUIDate.date
-        var ObjectArray = prefs.arrayForKey("TheArray") as! [ReminderObject]
-        ObjectArray.append(newObject)
-        prefs.setValue(ObjectArray, forKey: "TheArray")
+        
+        let decodeData = prefs.objectForKey("TheData") as! NSData
+        var objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject] 
+        objectArray.append(newObject)
+        
+        let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
+        prefs.setObject(data, forKey: "TheData")
         prefs.synchronize()
+        
         navigationController?.popViewControllerAnimated(true)
+        }
+        else{
+            let alert = UIAlertController(title: "Incomplete", message: "Please fill out the form", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
 

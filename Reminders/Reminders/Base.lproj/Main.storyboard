@@ -35,46 +35,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txq-jr-h9k">
-                                <rect key="frame" x="102" y="475" width="117" height="30"/>
-                                <state key="normal" title="SUBMIT IT FOOL"/>
-                                <connections>
-                                    <action selector="SubmitButton:" destination="bnk-o9-nKc" eventType="touchUpInside" id="GXX-59-wyH"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-V5-gUa">
-                                <rect key="frame" x="47" y="130" width="226" height="30"/>
+                                <rect key="frame" x="43" y="105.5" width="234" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="F0W-2a-1fa">
-                                <rect key="frame" x="-4" y="243" width="328" height="216"/>
+                                <rect key="frame" x="-4" y="241.5" width="328" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="477604155.395033">
                                     <!--2016-02-19 19:49:15 +0000-->
                                 </date>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jd7-A4-VcS">
-                                <rect key="frame" x="47" y="198" width="226" height="30"/>
+                                <rect key="frame" x="43" y="180" width="234" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFX-KV-Fj8">
+                                <rect key="frame" x="143.5" y="85" width="33.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkV-y4-iWg">
+                                <rect key="frame" x="112" y="159.5" width="96" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LR-Rh-KPC">
+                                <rect key="frame" x="124.5" y="218" width="71.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txq-jr-h9k">
+                                <rect key="frame" x="128" y="474" width="64" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.0070289468071207395" green="0.44598320510944534" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SubmitButton:" destination="bnk-o9-nKc" eventType="touchUpInside" id="GXX-59-wyH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lkV-y4-iWg" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="0oq-cW-FcY"/>
                             <constraint firstItem="F0W-2a-1fa" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="-20" id="6Fz-t5-IF9"/>
                             <constraint firstItem="jd7-A4-VcS" firstAttribute="top" secondItem="M2g-V5-gUa" secondAttribute="bottom" constant="38" id="914-sD-SqF"/>
+                            <constraint firstItem="HFX-KV-Fj8" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="9oo-tp-qyt"/>
                             <constraint firstItem="jd7-A4-VcS" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="Awd-Jn-XIC"/>
+                            <constraint firstItem="jd7-A4-VcS" firstAttribute="top" secondItem="lkV-y4-iWg" secondAttribute="bottom" id="EAU-Vb-mLQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7LR-Rh-KPC" secondAttribute="trailing" constant="96" id="H4N-Tl-izE"/>
+                            <constraint firstItem="HFX-KV-Fj8" firstAttribute="top" secondItem="qkC-fR-Y9a" secondAttribute="bottom" constant="21" id="M52-nH-1eI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jd7-A4-VcS" secondAttribute="trailing" constant="27" id="OdA-e1-W9Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M2g-V5-gUa" secondAttribute="trailing" constant="27" id="QcO-Im-qis"/>
+                            <constraint firstItem="7LR-Rh-KPC" firstAttribute="top" secondItem="jd7-A4-VcS" secondAttribute="bottom" constant="8" id="SYX-dw-Jbm"/>
                             <constraint firstItem="Txq-jr-h9k" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="UPR-x2-n3f"/>
                             <constraint firstItem="M2g-V5-gUa" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="31" id="WQt-ei-Wmj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F0W-2a-1fa" secondAttribute="trailing" constant="-20" id="YkJ-Og-fRJ"/>
+                            <constraint firstItem="F0W-2a-1fa" firstAttribute="top" secondItem="7LR-Rh-KPC" secondAttribute="bottom" constant="3" id="beq-x0-yMW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jd7-A4-VcS" secondAttribute="trailing" constant="31" id="bg8-2c-d7b"/>
                             <constraint firstItem="jd7-A4-VcS" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="31" id="cW9-IV-hYW"/>
                             <constraint firstItem="Txq-jr-h9k" firstAttribute="top" secondItem="F0W-2a-1fa" secondAttribute="bottom" constant="16" id="fNO-QN-myn"/>
                             <constraint firstItem="M2g-V5-gUa" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="fgK-DZ-ySz"/>
+                            <constraint firstItem="lkV-y4-iWg" firstAttribute="top" secondItem="M2g-V5-gUa" secondAttribute="bottom" constant="24" id="gGq-Sd-hoO"/>
                             <constraint firstItem="M2g-V5-gUa" firstAttribute="top" secondItem="qkC-fR-Y9a" secondAttribute="bottom" constant="66" id="iKh-wg-NHL"/>
                             <constraint firstItem="F0W-2a-1fa" firstAttribute="top" secondItem="jd7-A4-VcS" secondAttribute="bottom" constant="15" id="oSB-Y1-48h"/>
+                            <constraint firstItem="M2g-V5-gUa" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="27" id="oZh-JA-SYc"/>
+                            <constraint firstItem="7LR-Rh-KPC" firstAttribute="centerX" secondItem="fnf-gG-i6f" secondAttribute="centerX" id="pgy-ME-SZt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lkV-y4-iWg" secondAttribute="trailing" constant="96" id="plJ-w9-eci"/>
+                            <constraint firstItem="jd7-A4-VcS" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="27" id="rc6-1u-iS4"/>
+                            <constraint firstItem="M2g-V5-gUa" firstAttribute="top" secondItem="HFX-KV-Fj8" secondAttribute="bottom" id="s8D-lb-Tcf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="M2g-V5-gUa" secondAttribute="trailing" constant="31" id="wXI-qX-KG2"/>
+                            <constraint firstItem="lkV-y4-iWg" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="96" id="xbc-Ne-VB6"/>
+                            <constraint firstItem="7LR-Rh-KPC" firstAttribute="leading" secondItem="fnf-gG-i6f" secondAttribute="leadingMargin" constant="112" id="xdB-pN-M9S"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WQt-ei-Wmj"/>
+                                <exclude reference="iKh-wg-NHL"/>
+                                <exclude reference="wXI-qX-KG2"/>
+                                <exclude reference="914-sD-SqF"/>
+                                <exclude reference="bg8-2c-d7b"/>
+                                <exclude reference="cW9-IV-hYW"/>
+                                <exclude reference="oSB-Y1-48h"/>
+                                <exclude reference="H4N-Tl-izE"/>
+                                <exclude reference="xdB-pN-M9S"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

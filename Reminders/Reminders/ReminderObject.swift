@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReminderObject: NSObject {
+class ReminderObject: NSObject, NSCoding {
     
     var theReminderTitle = ""
     
@@ -45,6 +45,25 @@ class ReminderObject: NSObject {
             self.theReminderDateTime = newValue
         }
     }
+    
+    override init() {
+        
+    }
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        self.init()
+        self.reminderTitle = aDecoder.decodeObjectForKey("ReminderTitle") as! String
+        self.reminderDescription = aDecoder.decodeObjectForKey("ReminderDescription") as! String
+        self.reminderDateTime = aDecoder.decodeObjectForKey("ReminderDateTime") as! NSDate
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(reminderTitle, forKey: "ReminderTitle")
+        aCoder.encodeObject(reminderDescription, forKey: "ReminderDescription")
+        aCoder.encodeObject(reminderDateTime, forKey: "ReminderDateTime")
+
+    }
+    
     
     
 }
