@@ -160,15 +160,34 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sm-Ay-AGY">
+                                            <rect key="frame" x="168" y="14" width="144" height="34.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="EhB-XV-rVb"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="EhB-XV-rVb"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="7sm-Ay-AGY" firstAttribute="top" secondItem="vZ0-rc-UoG" secondAttribute="topMargin" constant="6" id="2Qh-1f-kdl"/>
                                         <constraint firstAttribute="trailing" secondItem="VDO-al-BOT" secondAttribute="trailing" constant="162" id="5z4-mD-NYS"/>
                                         <constraint firstItem="VDO-al-BOT" firstAttribute="leading" secondItem="vZ0-rc-UoG" secondAttribute="leading" constant="8" id="DCF-LI-odc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="7sm-Ay-AGY" secondAttribute="bottom" constant="7" id="KSL-AD-BDA"/>
                                         <constraint firstItem="VDO-al-BOT" firstAttribute="top" secondItem="vZ0-rc-UoG" secondAttribute="top" constant="8" id="dBs-rM-hJe"/>
                                         <constraint firstAttribute="bottom" secondItem="VDO-al-BOT" secondAttribute="bottom" constant="8" id="fIc-53-hmd"/>
+                                        <constraint firstItem="7sm-Ay-AGY" firstAttribute="trailing" secondItem="vZ0-rc-UoG" secondAttribute="trailingMargin" id="oFg-8u-gYh"/>
+                                        <constraint firstItem="7sm-Ay-AGY" firstAttribute="leading" secondItem="VDO-al-BOT" secondAttribute="trailing" constant="10" id="tYx-cm-Q3J"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="ReminderDate" destination="7sm-Ay-AGY" id="lgJ-eS-Cnu"/>
                                     <outlet property="ReminderText" destination="VDO-al-BOT" id="zRB-uh-HiU"/>
                                 </connections>
                             </tableViewCell>

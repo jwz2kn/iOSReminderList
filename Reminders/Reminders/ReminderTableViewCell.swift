@@ -11,6 +11,7 @@ import UIKit
 class ReminderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var ReminderText: UILabel!
+    @IBOutlet weak var ReminderDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

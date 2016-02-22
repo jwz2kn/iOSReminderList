@@ -71,6 +71,14 @@ class ReminderTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RCell", forIndexPath: indexPath) as! ReminderTableViewCell
         cell.ReminderText.text = objectArray[indexPath.row].reminderTitle
+        let date = objectArray[indexPath.row].reminderDateTime
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "'Due:' h:mm a, M/dd"
+        dateFormatter.AMSymbol = "AM"
+        dateFormatter.PMSymbol = "PM"
+        let dateAsString = dateFormatter.stringFromDate(date)
+        cell.ReminderDate.text = dateAsString
+        
         return cell
     }
     
