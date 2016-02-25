@@ -45,7 +45,7 @@ class ReminderTableViewController: UITableViewController {
             objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
         }
         self.tableView.reloadData()
-
+        // NSLog("\(objectArray.count)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,10 +78,18 @@ class ReminderTableViewController: UITableViewController {
         dateFormatter.PMSymbol = "PM"
         let dateAsString = dateFormatter.stringFromDate(date)
         cell.ReminderDate.text = dateAsString
-        
         return cell
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            objectArray.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
+            prefs.setObject(data, forKey: "TheData")
+            prefs.synchronize()
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
