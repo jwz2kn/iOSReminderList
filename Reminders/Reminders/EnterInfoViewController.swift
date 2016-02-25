@@ -14,6 +14,7 @@ class EnterInfoViewController: UIViewController {
     @IBOutlet weak var ReminderUIDescription:UITextField!
     @IBOutlet weak var ReminderUIDate:UIDatePicker!
     @IBOutlet weak var SubmitButton:UIButton!
+    @IBOutlet weak var ReminderScrollView:UIScrollView!
     let prefs = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
@@ -30,7 +31,7 @@ class EnterInfoViewController: UIViewController {
     
     
     @IBAction func SubmitButton(sender: AnyObject) {
-        if(ReminderUITitle.text != "" && ReminderUIDescription.text != ""){
+        if(ReminderUITitle.text != "" && ReminderUIDescription.text != "" && ReminderUIDate.date.compare(NSDate()) == NSComparisonResult.OrderedDescending ){
         let newObject = ReminderObject()
         newObject.reminderTitle = ReminderUITitle.text!
         newObject.reminderDescription = ReminderUIDescription.text!
@@ -47,7 +48,8 @@ class EnterInfoViewController: UIViewController {
         navigationController?.popViewControllerAnimated(true)
         }
         else{
-            let alert = UIAlertController(title: "Incomplete", message: "Please fill out the form", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Incomplete",
+                message: "Please fill out the form with title, description, and valid date!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }

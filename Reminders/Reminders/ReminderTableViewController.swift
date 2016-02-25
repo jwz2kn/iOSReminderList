@@ -44,6 +44,7 @@ class ReminderTableViewController: UITableViewController {
             let decodeData = prefs.objectForKey("TheData") as! NSData
             objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
         }
+        objectArray.sortInPlace({$0.reminderDateTime.compare($1.reminderDateTime) == NSComparisonResult.OrderedAscending })
         self.tableView.reloadData()
         // NSLog("\(objectArray.count)")
     }
@@ -73,7 +74,7 @@ class ReminderTableViewController: UITableViewController {
         cell.ReminderText.text = objectArray[indexPath.row].reminderTitle
         let date = objectArray[indexPath.row].reminderDateTime
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "'Due:' h:mm a, M/dd"
+        dateFormatter.dateFormat = "h:mm a, M/dd/YY"
         dateFormatter.AMSymbol = "AM"
         dateFormatter.PMSymbol = "PM"
         let dateAsString = dateFormatter.stringFromDate(date)
