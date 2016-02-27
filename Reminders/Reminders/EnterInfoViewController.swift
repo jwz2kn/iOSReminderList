@@ -81,7 +81,8 @@ class EnterInfoViewController: UIViewController {
             let decodeData = prefs.objectForKey("TheData") as! NSData
             var objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
             objectArray.append(newObject)
-        
+            
+            objectArray.sortInPlace({$0.reminderDateTime.compare($1.reminderDateTime) == NSComparisonResult.OrderedAscending })
             let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
             prefs.setObject(data, forKey: "TheData")
             prefs.synchronize()
