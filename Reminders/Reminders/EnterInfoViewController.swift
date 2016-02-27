@@ -48,17 +48,19 @@ class EnterInfoViewController: UIViewController {
     @IBAction func SubmitButton(sender: AnyObject) {
         if(detailReminderObject != nil && (ReminderUITitle.text != "" && ReminderUIDescription.text != "" && ReminderUIDate.date.compare(NSDate()) == NSComparisonResult.OrderedDescending )){
             
-            let newObject = ReminderObject()
-            newObject.reminderTitle = ReminderUITitle.text!
-            newObject.reminderDescription = ReminderUIDescription.text!
-            newObject.reminderDateTime = ReminderUIDate.date
+//            let newObject = ReminderObject()
+//            newObject.reminderTitle = ReminderUITitle.text!
+//            newObject.reminderDescription = ReminderUIDescription.text!
+//            newObject.reminderDateTime = ReminderUIDate.date
             
             let decodeData = prefs.objectForKey("TheData") as! NSData
             var objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
 
             //objectArray[objectArray.indexOf(detailReminderObject!)!] = newObject
+            objectArray[detailRow!].reminderTitle = ReminderUITitle.text!
+            objectArray[detailRow!].reminderDescription = ReminderUIDescription.text!
+            objectArray[detailRow!].reminderDateTime = ReminderUIDate.date
             objectArray.sortInPlace({$0.reminderDateTime.compare($1.reminderDateTime) == NSComparisonResult.OrderedAscending })
-            objectArray[detailRow!] = newObject
             let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
             prefs.setObject(data, forKey: "TheData")
             prefs.synchronize()
