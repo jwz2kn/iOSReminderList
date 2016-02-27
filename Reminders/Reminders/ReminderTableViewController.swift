@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ReminderTableViewController: UITableViewController {
     var reminders: [String] = ["Do your homework", "This is a test"]
@@ -30,7 +31,43 @@ class ReminderTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
+        var checkTimesTimer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: Selector("checkTimes"), userInfo: nil, repeats: true)
+    }
+    
+    func checkTimes()
+    {
+        if(!objectArray.isEmpty){
+            if(objectArray[0].reminderDateTime.compare(NSDate()) == NSComparisonResult.OrderedAscending  ){
+                let alert = UIAlertController(title: "\(objectArray[0].theReminderTitle) is due",
+                    message: "Postpone an hour or delete?", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                let Delete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Cancel) {
+                    UIAlertAction in
+                    NSLog("Delete pressed")
+                    self.objectArray.removeFirst();
+                    self.objectArray.sortInPlace({$0.reminderDateTime.compare($1.reminderDateTime) == NSComparisonResult.OrderedAscending })
+                    let data = NSKeyedArchiver.archivedDataWithRootObject(self.objectArray)
+                    self.prefs.setObject(data, forKey: "TheData")
+                    self.prefs.synchronize()
+                    self.tableView.reloadData()
+                }
+                let Postpone = UIAlertAction(title: "Postpone", style: UIAlertActionStyle.Default) {
+                    UIAlertAction in
+                    NSLog("Postpone Pressed")
+                    self.objectArray[0].theReminderDateTime = self.objectArray[0].theReminderDateTime.dateByAddingTimeInterval(3600);
+                    self.objectArray.sortInPlace({$0.reminderDateTime.compare($1.reminderDateTime) == NSComparisonResult.OrderedAscending })
+                    let data = NSKeyedArchiver.archivedDataWithRootObject(self.objectArray)
+                    self.prefs.setObject(data, forKey: "TheData")
+                    self.prefs.synchronize()
+                    self.tableView.reloadData()
+                }
+                alert.addAction(Delete)
+                alert.addAction(Postpone)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+        NSLog("checked")
+        NSLog("\(NSDate())")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,9 +81,10 @@ class ReminderTableViewController: UITableViewController {
             let decodeData = prefs.objectForKey("TheData") as! NSData
             objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
         }
-        objectArray.sortInPlace({$0.reminderDateTime.compare($1.reminderDateTime) == NSComparisonResult.OrderedAscending })
+//        objectArray.sortInPlace({$0.reminderDateTime.compare($1.reminderDateTime) == NSComparisonResult.OrderedAscending })
         self.tableView.reloadData()
         // NSLog("\(objectArray.count)")
+
     }
 
     override func didReceiveMemoryWarning() {
