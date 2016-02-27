@@ -91,7 +91,27 @@ class ReminderTableViewController: UITableViewController {
             prefs.synchronize()
         }
     }
-
+    
+    
+    // MARK: - Navigation
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showDetail", sender: indexPath)
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "showDetail") {
+            let controller = (segue.destinationViewController as! EnterInfoViewController)
+            //let indexPath = tableView.indexPathForCell(sender as! ReminderTableViewCell)
+            //let row = indexPath!.row
+            let row = (sender as! NSIndexPath).row
+            let detailedItem = objectArray[row]
+            controller.detailReminderObject = detailedItem
+            controller.detailRow = row
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -127,14 +147,6 @@ class ReminderTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

@@ -107,8 +107,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="hUX-rt-HNJ"/>
                                         <exclude reference="Up2-lR-UMY"/>
+                                        <exclude reference="hUX-rt-HNJ"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfh-Rp-cyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="920" y="322"/>
+            <point key="canvasLocation" x="888" y="322"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="izj-dn-d3s">
@@ -199,10 +199,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="bnk-o9-nKc" kind="show" identifier="showDetail" id="fJt-bu-vc3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCy-gv-b5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="491" y="322"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fJt-bu-vc3"/>
+    </inferredMetricsTieBreakers>
 </document>

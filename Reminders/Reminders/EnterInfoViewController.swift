@@ -15,6 +15,8 @@ class EnterInfoViewController: UIViewController {
     @IBOutlet weak var ReminderUIDate:UIDatePicker!
     @IBOutlet weak var SubmitButton:UIButton!
     @IBOutlet weak var ReminderScrollView:UIScrollView!
+    weak var detailReminderObject:ReminderObject?
+    var detailRow:Int?
     let prefs = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
@@ -23,6 +25,13 @@ class EnterInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+        
+        if (detailReminderObject != nil) {
+            self.ReminderUITitle.text = detailReminderObject?.reminderTitle
+            self.ReminderUIDescription.text = detailReminderObject?.reminderDescription
+            self.ReminderUIDate.date = (detailReminderObject?.reminderDateTime)!
+            
+        }
     }
 
     func dismissKeyboard() {
@@ -34,24 +43,48 @@ class EnterInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     
     @IBAction func SubmitButton(sender: AnyObject) {
-        if(ReminderUITitle.text != "" && ReminderUIDescription.text != "" && ReminderUIDate.date.compare(NSDate()) == NSComparisonResult.OrderedDescending ){
-        let newObject = ReminderObject()
-        newObject.reminderTitle = ReminderUITitle.text!
-        newObject.reminderDescription = ReminderUIDescription.text!
-        newObject.reminderDateTime = ReminderUIDate.date
+        if(detailReminderObject != nil && (ReminderUITitle.text != "" && ReminderUIDescription.text != "" && ReminderUIDate.date.compare(NSDate()) == NSComparisonResult.OrderedDescending )){
+            
+            let newObject = ReminderObject()
+            newObject.reminderTitle = ReminderUITitle.text!
+            newObject.reminderDescription = ReminderUIDescription.text!
+            newObject.reminderDateTime = ReminderUIDate.date
+            
+            let decodeData = prefs.objectForKey("TheData") as! NSData
+            var objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
+
+            //objectArray[objectArray.indexOf(detailReminderObject!)!] = newObject
+            objectArray.sortInPlace({$0.reminderDateTime.compare($1.reminderDateTime) == NSComparisonResult.OrderedAscending })
+            objectArray[detailRow!] = newObject
+            let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
+            prefs.setObject(data, forKey: "TheData")
+            prefs.synchronize()
+
+            navigationController?.popViewControllerAnimated(true)
+            
+            for (o) in objectArray {
+                NSLog("\(o.reminderTitle) \(o.reminderDescription) \(o.reminderDateTime)")
+            }
+            
+        }
+        else if(ReminderUITitle.text != "" && ReminderUIDescription.text != "" && ReminderUIDate.date.compare(NSDate()) == NSComparisonResult.OrderedDescending ){
+            let newObject = ReminderObject()
+            newObject.reminderTitle = ReminderUITitle.text!
+            newObject.reminderDescription = ReminderUIDescription.text!
+            newObject.reminderDateTime = ReminderUIDate.date
         
-        let decodeData = prefs.objectForKey("TheData") as! NSData
-        var objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject] 
-        objectArray.append(newObject)
+            let decodeData = prefs.objectForKey("TheData") as! NSData
+            var objectArray = NSKeyedUnarchiver.unarchiveObjectWithData(decodeData) as! [ReminderObject]
+            objectArray.append(newObject)
         
-        let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
-        prefs.setObject(data, forKey: "TheData")
-        prefs.synchronize()
+            let data = NSKeyedArchiver.archivedDataWithRootObject(objectArray)
+            prefs.setObject(data, forKey: "TheData")
+            prefs.synchronize()
         
-        navigationController?.popViewControllerAnimated(true)
+            navigationController?.popViewControllerAnimated(true)
         }
         else{
             let alert = UIAlertController(title: "Incomplete",
